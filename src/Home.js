@@ -6,6 +6,7 @@ import { requestApiData } from "./actions";
 
 class Home extends React.Component {
   componentDidMount() {
+    console.log("componentDidMount home")
     this.props.requestApiData();
   }
 
@@ -20,15 +21,17 @@ class Home extends React.Component {
       <h1>
         {x.name.last}
       </h1>
-      <img src={x.picture.medium} />
+      <img alt="test" src={x.picture.medium} />
     </div>;
 
   render() {
+    console.log("render home")
+
     const { results = [] } = this.props.data;
     return results.length
       ? <h1>
-          {results.map(this.person)}
-        </h1>
+        {results.map(this.person)}
+      </h1>
       : <h1>loading...</h1>;
   }
 }
